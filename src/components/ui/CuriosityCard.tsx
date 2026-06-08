@@ -8,11 +8,10 @@ interface CuriosityCardProps {
 export function CuriosityCard({ card, delay = 0 }: CuriosityCardProps) {
   return (
     <div
-      className="reveal group rounded-2xl p-5 transition-all duration-300 cursor-default"
+      className="reveal card-glass group rounded-2xl p-5 transition-all duration-300 cursor-default"
       style={{
         animationDelay: `${delay}s`,
         background: 'rgba(111, 34, 50, 0.12)',
-        backdropFilter: 'blur(12px)',
         border: '1px solid rgba(212, 175, 55, 0.2)',
       }}
       onMouseEnter={(e) => {
@@ -31,7 +30,7 @@ export function CuriosityCard({ card, delay = 0 }: CuriosityCardProps) {
       <span className="text-3xl block mb-3" role="img" aria-label={card.title}>
         {card.icon}
       </span>
-      <h3 className="font-semibold text-cream text-sm mb-1.5 leading-snug" style={{ color: '#fffaf7' }}>
+      <h3 className="font-semibold text-sm mb-1.5 leading-snug" style={{ color: '#fffaf7' }}>
         {card.title}
       </h3>
       <p className="text-[13px] leading-relaxed" style={{ color: '#9a7a80' }}>{card.example}</p>

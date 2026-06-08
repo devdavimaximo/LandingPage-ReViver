@@ -62,6 +62,26 @@ body {
   animation: fadeUpIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* backdrop-filter apenas no desktop — caro demais na GPU mobile */
+@media (min-width: 768px) {
+  .card-glass {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* No mobile: animações de entrada mais curtas e sem translateY pesado */
+@media (max-width: 767px) {
+  .reveal {
+    transform: translateY(16px);
+  }
+
+  @keyframes fadeUpIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.revealed {

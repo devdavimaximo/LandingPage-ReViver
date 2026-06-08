@@ -1,4 +1,5 @@
 import React, { type ReactNode } from 'react';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 interface AuroraBackgroundProps {
   children: ReactNode;
@@ -17,6 +18,8 @@ export function AuroraBackground({
   className = '',
   showRadialGradient = true,
 }: AuroraBackgroundProps) {
+  const isMobile = useIsMobile();
+
   const mask = showRadialGradient
     ? 'radial-gradient(ellipse at 80% 0%, black 20%, transparent 70%)'
     : undefined;
@@ -43,16 +46,19 @@ export function AuroraBackground({
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <div className="absolute inset-0" aria-hidden="true">
-        <div
-          className="aurora-layer absolute -inset-[10px] opacity-30 will-change-transform pointer-events-none"
-          style={layerBase}
-        />
-        <div
-          className="aurora-layer absolute -inset-[10px] opacity-20 will-change-transform pointer-events-none"
-          style={layerBlend}
-        />
-      </div>
+      {/* Aurora layers: desativado no mobile — blur animado custa muito na GPU */}
+      {!isMobile && (
+        <div className="absolute inset-0" aria-hidden="true">
+          <div
+            className="aurora-layer absolute -inset-2.5 opacity-30 will-change-transform pointer-events-none"
+            style={layerBase}
+          />
+          <div
+            className="aurora-layer absolute -inset-2.5 opacity-20 will-change-transform pointer-events-none"
+            style={layerBlend}
+          />
+        </div>
+      )}
       {children}
     </div>
   );
