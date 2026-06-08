@@ -30,7 +30,7 @@ export function SectionHeading({
       <h2
         className={`text-3xl sm:text-4xl font-bold leading-tight mb-4 ${headingStyle === 'serif' ? 'italic' : ''}`}
         style={{
-          fontFamily: headingStyle === 'serif' ? "'Playfair Display', Georgia, serif" : undefined,
+          fontFamily: headingStyle === 'serif' ? "'Cormorant Garamond', Georgia, serif" : undefined,
           color: '#fffaf7',
         }}
       >

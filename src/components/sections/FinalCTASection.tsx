@@ -45,7 +45,7 @@ export function FinalCTASection() {
         <h2
           className="text-3xl sm:text-5xl font-bold italic leading-tight mb-6"
           style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
             color: '#fffaf7',
           }}
         >
