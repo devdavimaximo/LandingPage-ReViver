@@ -1,0 +1,9 @@
+/* Estilos específicos não cobertos pelo Tailwind */
+
+.phone-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.panel-transition {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
