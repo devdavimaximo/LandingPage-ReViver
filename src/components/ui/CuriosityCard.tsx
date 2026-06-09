@@ -2,15 +2,13 @@ import type { CuriosityCardData } from '../../data/curiosityCards';
 
 interface CuriosityCardProps {
   card: CuriosityCardData;
-  delay?: number;
 }
 
-export function CuriosityCard({ card, delay = 0 }: CuriosityCardProps) {
+export function CuriosityCard({ card }: CuriosityCardProps) {
   return (
     <div
-      className="reveal card-glass group rounded-2xl p-5 transition-all duration-300 cursor-default"
+      className="card-glass group rounded-2xl p-5 transition-all duration-300 cursor-default"
       style={{
-        animationDelay: `${delay}s`,
         background: 'rgba(111, 34, 50, 0.12)',
         border: '1px solid rgba(212, 175, 55, 0.2)',
       }}

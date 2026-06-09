@@ -5,6 +5,7 @@ interface AuroraBackgroundProps {
   children: ReactNode;
   className?: string;
   showRadialGradient?: boolean;
+  id?: string;
 }
 
 const DARK_STRIPE =
@@ -17,6 +18,7 @@ export function AuroraBackground({
   children,
   className = '',
   showRadialGradient = true,
+  id,
 }: AuroraBackgroundProps) {
   const isMobile = useIsMobile();
 
@@ -45,7 +47,7 @@ export function AuroraBackground({
   };
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div id={id} className={`relative overflow-hidden ${className}`}>
       {/* Aurora layers: desativado no mobile — blur animado custa muito na GPU */}
       {!isMobile && (
         <div className="absolute inset-0" aria-hidden="true">

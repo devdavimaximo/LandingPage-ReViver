@@ -10,6 +10,8 @@ function App() {
     <div style={{ minHeight: '100dvh', background: '#160408', color: '#fffaf7' }}>
       <Navbar />
       <main>
+        {/* Sentinel fora do sticky — garante que #inicio aponta para posição 0 real */}
+        <div id="inicio" style={{ position: 'absolute', top: 0 }} aria-hidden="true" />
         <HeroScrollWrapper />
         <DemoSection />
         <FinalCTASection />

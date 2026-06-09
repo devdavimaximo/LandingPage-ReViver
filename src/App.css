@@ -10,10 +10,10 @@
 
 /* ── Hero image grid: canto interno de cada célula cortado ── */
 .hero-grid-img {
-  --r: 20px;   /* raio do arredondamento do corte */
-  --s: 40px;   /* tamanho do recuo diagonal */
-  --x: 20px;   /* offset horizontal */
-  --y: 4px;    /* offset vertical */
+  --r: 12px;   /* raio do arredondamento do corte */
+  --s: 20px;   /* tamanho do recuo diagonal */
+  --x: 10px;   /* offset horizontal */
+  --y: 2px;    /* offset vertical */
   position: absolute;
   inset: 0;
   width: 100%;

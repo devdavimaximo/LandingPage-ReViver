@@ -83,9 +83,11 @@ function DemoFrame({ activeTab }: { activeTab: TabId }) {
 export function DemoSection() {
   const [activeTab, setActiveTab] = useState<TabId>('timeline');
   const headingRef = useScrollReveal<HTMLDivElement>();
+  const frameRef = useScrollReveal<HTMLDivElement>();
 
   return (
     <section
+      id="demo"
       className="py-20 sm:py-28 px-5 sm:px-8"
       style={{
         background:
@@ -101,7 +103,7 @@ export function DemoSection() {
           />
         </div>
 
-        {/* tabs */}
+        {/* tab selector */}
         <div className="flex justify-center mb-8">
           <div
             className="flex gap-1 p-1 rounded-full flex-wrap justify-center"
@@ -132,7 +134,7 @@ export function DemoSection() {
         </div>
 
         {/* phone frame */}
-        <div className="reveal">
+        <div ref={frameRef}>
           <DemoFrame activeTab={activeTab} />
         </div>
       </div>
