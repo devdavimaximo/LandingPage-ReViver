@@ -2,8 +2,8 @@
 // top-left  → corta bottom-right | top-right  → corta bottom-left
 // bottom-left → corta top-right  | bottom-right → corta top-left
 const CELLS = [
-  { corner: 'bottom-right', src: '/hero4.jpeg', alt: 'Casal 4' },
-  { corner: 'bottom-left',  src: '/hero3.jpeg', alt: 'Casal 3' },
+  { corner: 'bottom-right', src: '/hero3.jpeg', alt: 'Casal 3' },
+  { corner: 'bottom-left',  src: '/hero4.jpeg', alt: 'Casal 4' },
   { corner: 'top-right',    src: '/hero2.jpeg', alt: 'Casal 2' },
   { corner: 'top-left',     src: '/hero1.jpeg', alt: 'Casal 1' },
 ] as const;
