@@ -1,26 +1,23 @@
 import { useState } from 'react';
 import { SectionHeading } from '../ui/SectionHeading';
-import { RetroTimeline } from '../demo/RetroTimeline';
-import { RetroFirstMessage } from '../demo/RetroFirstMessage';
-import { RetroStats } from '../demo/RetroStats';
-import { RetroEmojis } from '../demo/RetroEmojis';
-import { RetroChart } from '../demo/RetroChart';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
-type TabId = 'timeline' | 'primeira' | 'stats' | 'emojis' | 'grafico';
+type TabId = 'dashboard' | 'memorias' | 'datas' | 'mural' | 'compartilhar';
 
 interface Tab {
   id: TabId;
   label: string;
   icon: string;
+  src: string;
+  fit?: 'cover' | 'contain';
 }
 
 const tabs: Tab[] = [
-  { id: 'timeline', label: 'Timeline', icon: '📅' },
-  { id: 'primeira', label: '1ª Mensagem', icon: '💬' },
-  { id: 'stats', label: 'Stats', icon: '📊' },
-  { id: 'emojis', label: 'Emojis', icon: '😍' },
-  { id: 'grafico', label: 'Gráfico', icon: '📈' },
+  { id: 'dashboard',    label: 'Dashboard',   icon: '✨', src: '/dashboard.jpeg' },
+  { id: 'memorias',     label: 'Memórias',    icon: '📸', src: '/memorias.jpeg' },
+  { id: 'datas',        label: 'Datas',       icon: '📅', src: '/datas.jpeg' },
+  { id: 'mural',        label: 'Mural',       icon: '🖼️', src: '/mural.jpeg' },
+  { id: 'compartilhar', label: 'Compartilhar',icon: '💌', src: '/compartilhar.png', fit: 'contain' },
 ];
 
 function DemoFrame({ activeTab }: { activeTab: TabId }) {
@@ -38,26 +35,8 @@ function DemoFrame({ activeTab }: { activeTab: TabId }) {
         overflow: 'hidden',
       }}
     >
-      {/* header */}
-      <div
-        className="flex items-center gap-2 px-4 py-3"
-        style={{ background: '#160408', borderBottom: '1px solid rgba(212,175,55,0.1)' }}
-      >
-        <div
-          className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-          style={{ background: 'linear-gradient(135deg, #6f2232, #290916)', color: '#fffaf7' }}
-        >
-          R
-        </div>
-        <div>
-          <p className="text-xs font-semibold" style={{ color: '#fffaf7' }}>Ana & Lucas</p>
-          <p className="text-[9px]" style={{ color: '#9a7a80' }}>Retrospectiva · 1.576 dias</p>
-        </div>
-        <span className="ml-auto text-sm">✨</span>
-      </div>
-
       {/* content panels */}
-      <div className="relative" style={{ height: 'calc(100% - 56px)' }}>
+      <div className="relative" style={{ height: '100%' }}>
         {tabs.map((tab) => (
           <div
             key={tab.id}
@@ -66,13 +45,21 @@ function DemoFrame({ activeTab }: { activeTab: TabId }) {
               opacity: activeTab === tab.id ? 1 : 0,
               transform: activeTab === tab.id ? 'translateX(0)' : 'translateX(12px)',
               pointerEvents: activeTab === tab.id ? 'auto' : 'none',
+              background: tab.fit === 'contain' ? '#160408' : undefined,
             }}
           >
-            {tab.id === 'timeline' && <RetroTimeline />}
-            {tab.id === 'primeira' && <RetroFirstMessage />}
-            {tab.id === 'stats' && <RetroStats />}
-            {tab.id === 'emojis' && <RetroEmojis />}
-            {tab.id === 'grafico' && <RetroChart />}
+            <img
+              src={tab.src}
+              alt={tab.label}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: tab.fit ?? 'cover',
+                objectPosition: 'top center',
+              }}
+            />
           </div>
         ))}
       </div>
@@ -81,7 +68,7 @@ function DemoFrame({ activeTab }: { activeTab: TabId }) {
 }
 
 export function DemoSection() {
-  const [activeTab, setActiveTab] = useState<TabId>('timeline');
+  const [activeTab, setActiveTab] = useState<TabId>('dashboard');
   const headingRef = useScrollReveal<HTMLDivElement>();
   const frameRef = useScrollReveal<HTMLDivElement>();
 
@@ -97,9 +84,9 @@ export function DemoSection() {
       <div className="max-w-6xl mx-auto">
         <div ref={headingRef} className="mb-12">
           <SectionHeading
-            eyebrow="Veja como fica"
-            headline="Sua história, transformada em uma retrospectiva interativa."
-            subheadline="Em poucos minutos, a ReViver transforma milhares de mensagens em uma experiência única para reviver a trajetória de vocês."
+            eyebrow="Muito além da retrospectiva"
+            headline="A plataforma dos casais apaixonados."
+            subheadline="Guardem memórias, celebrem datas importantes, compartilhem momentos e construam juntos a história de vocês."
           />
         </div>
 

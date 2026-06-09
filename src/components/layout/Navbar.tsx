@@ -35,7 +35,7 @@ export function Navbar() {
         </a>
 
         {/* Tubelight nav links — visível só no desktop */}
-        <nav className="hidden sm:flex items-center gap-1" aria-label="Navegação principal">
+        <nav className="hidden sm:flex items-center gap-2" aria-label="Navegação principal">
           {NAV_ITEMS.map(({ name, url, icon: Icon }) => {
             const isActive = activeTab === name;
             return (
@@ -81,7 +81,7 @@ export function Navbar() {
           })}
         </nav>
 
-        <CTAButton label="Começar agora" size="md" />
+        <CTAButton label="Começar agora" size="sm" />
       </div>
     </header>
   );

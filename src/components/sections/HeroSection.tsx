@@ -15,8 +15,8 @@ export function HeroSection() {
         }}
       />
 
-      <div className="relative w-full max-w-6xl mx-auto px-5 sm:px-8 py-20 lg:py-0">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-24">
+      <div className="relative w-full max-w-6xl mx-auto px-5 sm:px-8 py-12 lg:py-0">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-4 pb-4 lg:py-24">
           {/* text */}
           <div className="order-2 lg:order-1 text-center lg:text-left">
             <div
@@ -83,9 +83,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* visual — grid 2×2 com cantos internos cortados */}
+          {/* visual — grid 2×2 com cantos internos cortados (desktop only) */}
           <div
-            className="order-1 lg:order-2 flex justify-center items-center"
+            className="order-1 lg:order-2 hidden lg:flex justify-center items-center"
             style={{ animation: 'fadeUpIn 0.9s cubic-bezier(0.22,1,0.36,1) 0.4s both' }}
           >
             <HeroImageGrid />
