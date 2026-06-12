@@ -88,7 +88,7 @@ export function CuriositySection() {
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
-                Mais de 100 mil casais já descobriram a história deles. ✨
+                Sem cadastro, sem cartão. Só a história de vocês. ✨
               </p>
             </div>
           </div>

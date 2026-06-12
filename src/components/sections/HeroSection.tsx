@@ -67,9 +67,9 @@ export function HeroSection() {
               style={{ animation: 'fadeUpIn 0.8s cubic-bezier(0.22,1,0.36,1) 0.85s both' }}
             >
               {[
-                { n: '100k+', l: 'retrospectivas' },
-                { n: '4.9★', l: 'avaliação' },
                 { n: 'Grátis', l: 'para começar' },
+                { n: 'Em minutos', l: 'tudo gerado' },
+                { n: '100%', l: 'privado' },
               ].map((s) => (
                 <div key={s.l} className="text-center">
                   <p className="text-xl font-bold" style={{ color: '#fffaf7' }}>
